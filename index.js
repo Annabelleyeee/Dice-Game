@@ -2,23 +2,14 @@ console.log ('Welcome to this virtual Dice rolling game! \n\nYou will take turns
 
 //Setting the value of the players names.
 let player1 = prompt('Player 1, Please enter your name:');
-console.log ('Welcome, ' + player1 + '!');
+console.log ('Welcome, ' + player1 + '!\n');
 
 let player2 = prompt('Player 2, Please enter your name:');
-console.log ('Welcome, ' + player2 + '!');
-console.log ('Let\'s Play!');
+console.log ('Welcome, ' + player2 + '!\n');
+console.log ('Let\'s Play!\n\n');
 
 play();
 function play() {
-//dice = [1, 2, 3, 4, 5, 6];
-//let length = dice.length;
-
-//the variable 'diceRoll' will generate a random number between 1 and 6
-let roll1 = Math.floor(Math.random() * 6 + 1);
-//number1= (dice[roll1]);
-let roll2 = Math.floor(Math.random() * 6 + 1);
-//number2= (dice[roll2]);
-
 
 //setting the round and points to 0
 let round = 1;
@@ -27,51 +18,68 @@ let pointPlayer2 = 0;
 
 do {
 
-while (round <= 20){
+//the variable 'diceRoll' will generate a random number between 1 and 6
+let roll1 = Math.floor(Math.random() * 6 + 1);
+let roll2 = Math.floor(Math.random() * 6 + 1);
+
+
+while (pointPlayer1 + pointPlayer2 <= 20){
   var rollPlayer1 = prompt('It\'s your turn ' + player1 + ', are you ready to roll? yes or no?');
 
-    if (rollPlayer1 == 'roll' || rollPlayer1 == 'yes' ) {
+    if(rollPlayer1 == 'roll' || rollPlayer1 == 'yes' ){
+      roll1 = Math.floor(Math.random() * 6 + 1);
       console.log ('You rolled a ' + roll1 + '!');
-    } else if (rollPlayer1 == 'no'){
+    } 
+    else if(rollPlayer1 == 'no'){
       console.log ('Ok, thank you for playing!');
-    }
+    } 
+    // else if(roll1 == 2){
+    // console.log('since you rolled a 2, you get 2 points!')
+    // pointPlayer1+=2
+    // }
 
   var rollPlayer2 = prompt('It\'s your turn ' + player2 + ', are you ready to roll? yes or no?');
 
     if (rollPlayer2 == 'roll' || rollPlayer2 == 'yes' ) {
+      roll2 = Math.floor(Math.random() * 6 + 1);
       console.log ('You rolled a ' + roll2 + '!');
-    } else if (rollPlayer2 == 'no'){
+    } 
+    // else if(roll2 == 2){
+    // console.log('since you rolled a 2, you get 2 points!')
+    // pointPlayer2+=2
+    // round++
+    // }
+    else if (rollPlayer2 == 'no'){
       break;
-      
     } 
     
      if (roll1 > roll2){
-       console.log('Congradulations! ' + player1 + ' you get a point');
+       console.log('Congradulations! ' + player1 + ' you win this round\n\n');
         pointPlayer1++;
         round++
 
       } else if (roll1 < roll2){
-        console.log('Congradulations! ' + player2 + ' you get a point');
+        console.log('Congradulations! ' + player2 + ' you win this round\n\n');
         pointPlayer2++;
         round++
 
+      } else if (roll1 = roll2){
+        console.log('you have a tie!')
+        round++
       }
   } 
 }
 
-
-
-  
-      while  (round <= 20) {
+while  (pointPlayer1 + pointPlayer2 <= 20) {
 
      }
-console.log (player1 + ', you have' + pointPlayer1 + '  points');
-console.log (player2 + ', you have' + pointPlayer2 + '  points')
+console.log (player1 + ', you have ' + pointPlayer1 + ' points');
+console.log (player2 + ', you have ' + pointPlayer2 + ' points')
 
 if (pointPlayer1 > pointPlayer2){
-  console.log ('Congradulations ' + player1 + ' you win')
+  console.log ('Congradulations ' + player1 + ', you win!')
 } else if (pointPlayer1 < pointPlayer2){
-  console.log ('Congradulations ' + player2 + ' you win')
+  console.log ('Congradulations ' + player2 + ', you win!')
 }
 
   
